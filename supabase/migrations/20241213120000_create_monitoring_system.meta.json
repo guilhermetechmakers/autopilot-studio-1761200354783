@@ -1,0 +1,17 @@
+{
+  "migration_name": "20241213120000_create_monitoring_system",
+  "created_at": "2024-12-13T12:00:00Z",
+  "description": "Create comprehensive monitoring system with metrics, logs, alerts, and health checks",
+  "tables_created": [
+    "monitoring_metrics",
+    "monitoring_logs", 
+    "monitoring_alerts",
+    "monitoring_health_checks"
+  ],
+  "tables_modified": [],
+  "tables_deleted": [],
+  "breaking_changes": false,
+  "rollback_sql": "DROP TABLE IF EXISTS monitoring_health_checks CASCADE; DROP TABLE IF EXISTS monitoring_alerts CASCADE; DROP TABLE IF EXISTS monitoring_logs CASCADE; DROP TABLE IF EXISTS monitoring_metrics CASCADE;",
+  "estimated_rows": 0,
+  "requires_downtime": false
+}

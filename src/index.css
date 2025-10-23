@@ -1,68 +1,197 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+/* Design System with CSS Custom Properties */
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Autopilot Studio Color Palette - RGB format for Tailwind */
+    --background: 0 0% 100%; /* #F8F9FB */
+    --foreground: 0 0% 3.9%; /* #151A29 */
+    
+    --primary: 0 0% 9%; /* #4998F3 */
+    --primary-foreground: 0 0% 98%; /* #FFFFFF */
+    
+    --secondary: 0 0% 96.1%; /* #8A8F98 */
+    --secondary-foreground: 0 0% 9%; /* #FFFFFF */
+    
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 3.9%; /* #151A29 */
+    
+    --border: 0 0% 89.8%; /* #E5E7EB */
+    --input: 0 0% 89.8%; /* #E5E7EB */
+    --ring: 0 0% 3.9%; /* #4998F3 */
+    
+    --muted: 0 0% 96.1%; /* #EDEDED */
+    --muted-foreground: 0 0% 45.1%; /* #8A8F98 */
+    
+    --accent: 0 0% 96.1%; /* #E9F3FE */
+    --accent-foreground: 0 0% 9%; /* #151A29 */
+    
+    --destructive: 0 84.2% 60.2%; /* #F44336 */
+    --destructive-foreground: 0 0% 98%; /* #FFFFFF */
+    
+    --radius: 0.5rem; /* 16px border radius */ --popover: 0 0% 100%; --popover-foreground: 0 0% 3.9%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%;
   }
-  a:hover {
-    color: #747bff;
+  
+  .dark {
+    --background: 0 0% 3.9%; /* #151A29 */
+    --foreground: 0 0% 98%; /* #F8F9FB */
+    
+    --card: 0 0% 3.9%; /* #1E293B */
+    --card-foreground: 0 0% 98%; /* #F8F9FB */
+    
+    --primary: 0 0% 98%; /* #4998F3 */
+    --primary-foreground: 0 0% 9%; /* #FFFFFF */
+    
+    --secondary: 0 0% 14.9%; /* #64748B */
+    --secondary-foreground: 0 0% 98%; /* #F8F9FB */
+    
+    --muted: 0 0% 14.9%; /* #334155 */
+    --muted-foreground: 0 0% 63.9%; /* #94A3B8 */
+    
+    --accent: 0 0% 14.9%; /* #334155 */
+    --accent-foreground: 0 0% 98%; /* #F8F9FB */
+    
+    --border: 0 0% 14.9%; /* #334155 */
+    --input: 0 0% 14.9%; /* #334155 */
+    --ring: 0 0% 83.1%; /* #4998F3 */ --popover: 0 0% 3.9%; --popover-foreground: 0 0% 98%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 0 0% 98%; --chart-1: 220 70% 50%; --chart-2: 160 60% 45%; --chart-3: 30 80% 55%; --chart-4: 280 65% 60%; --chart-5: 340 75% 55%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foreground;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+  
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+}
+
+@layer components {
+  /* Card component styles */
+  .card {
+    @apply bg-card text-card-foreground rounded-2xl shadow-card border border-border/50;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+  
+  /* Button component styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium shadow-sm transition-all duration-200 hover:bg-primary/90 hover:shadow-md active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-medium shadow-sm transition-all duration-200 hover:bg-secondary/90 hover:shadow-md active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary px-6 py-3 rounded-full font-medium transition-all duration-200 hover:bg-primary hover:text-primary-foreground active:scale-95;
+  }
+  
+  /* Form input styles */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+  
+  /* Sidebar navigation styles */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground transition-all duration-200 hover:text-foreground hover:bg-accent;
+  }
+  
+  .nav-item.active {
+    @apply text-foreground bg-accent font-medium;
+  }
+}
+
+/* Smooth Scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+/* Focus Visible for Accessibility */
+:focus-visible {
+  outline: 2px solid rgb(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--foreground));
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
